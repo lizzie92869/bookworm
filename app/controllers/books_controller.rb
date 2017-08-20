@@ -48,7 +48,9 @@ class BooksController < ApplicationController
     params.require(:book).permit(
       :title,
       :book_code,
-      :description
+      :description,
+      :cover_image,
+      :chapter_attributes => []
     )
   end
 end

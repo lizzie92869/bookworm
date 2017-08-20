@@ -1,0 +1,31 @@
+<div class="panel">
+  <div class="">
+    <%= form_for @book do |f| %>
+      <div class="space-1">
+        <%= f.text_field :title, class: "decorative-input", placeholder: "Book title", "aria-label": "Book Title" %>
+      </div>
+      <div class="space-1">
+        <%= f.text_field :book_code, class: "decorative-input", placeholder: "Book code", "aria-label": "Book Code" %>
+      </div>
+      <div class="space-1">
+        <%= f.text_area :description, class: "decorative-input book-description", placeholder: "Description", "aria-label": "Book Description" %>
+      </div>
+      <div class="space-1">
+        <fieldset class="cover-image">
+          <legend>Cover Image</legend>
+          <%= f.file_field :cover_image, accept: 'image/png, image/jpeg' %>
+        </fieldset>
+        <div class="cover-image-pic">
+          <% if !@book.try(:cover_image).blank? %>
+            <%= image_tag(@book.try(:cover_image), width: 75, height: 150) %>
+          <% else %>
+            No Cover Image
+          <% end %>
+        </div>
+      </div>
+      <div class="space-1">
+        <%= f.submit class: 'submit-btn' %>
+      </div>
+    <% end %>
+  </div>
+</div>
