@@ -10,15 +10,22 @@ describe Book do
       book.valid?
       expect(book.errors).to have_key(:title)
     end
+
+    it 'length between 3 and 256 characters'
+    it 'should start with letter'
   end
 
   context ':book_code' do
-    it { should respond_to(:title) }
+    it { should respond_to(:book_code) }
 
     it 'validates presence of book_code' do
       book.valid?
       expect(book.errors).to have_key(:book_code)
     end
+
+    it 'length between 3 and 80 characters'
+    it 'is case-insensitive and unique'
+
   end
 
   context ':description' do
@@ -28,6 +35,8 @@ describe Book do
       book = Book.new(title: 'hello', book_code: 'testcode', description: nil)
       expect(book).to be_valid
     end
+
+    it 'allows maximum of 500 characters'
   end
 
 
