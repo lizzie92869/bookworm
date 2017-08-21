@@ -2,8 +2,10 @@
   <a href="<%= book_path(book) %>" aria-label="<%= book.title %> table of contents">
     <h3><%= book.title %></h3>
   </a>
-  <div class="book-options">
-    <%= link_to 'Edit', edit_book_path(book) %> |
-    <%= link_to 'Delete', book_path(book), method: :delete %>
-  </div>
+  <% if false %>
+    <div class="book-options">
+      <%= link_to 'Edit', edit_book_path(book) %> |
+      <%= link_to 'Delete', book_path(book), method: :delete %>
+    </div>
+  <% end %>
 </div>
