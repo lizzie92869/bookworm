@@ -20,8 +20,8 @@ class Book < ApplicationRecord
   default_scope { order(created_at: :desc) }
 
   scope :by_book_code, ->(book_code) { where(book_code: book_code) if book_code.present? }
-  #search by title
-  scope :by_title, ->(title) { where('title LIKE ?', "%#{title}%") if title.present? }
+  #search by title, made to be case insensitive
+  scope :by_title, ->(title) { where('UPPER(title) LIKE UPPER(?)', "%#{title}%") if title.present? }
 
   #should these be moved?
   scope :order_by_title_asc, -> { reorder(title: :asc) }
