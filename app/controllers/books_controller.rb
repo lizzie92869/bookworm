@@ -1,12 +1,15 @@
 class BooksController < ApplicationController
+  include BasicJson
 
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
     @books = Book.all
+    render_json_and_html(@books)
   end
 
   def show
+    render_json_and_html(@book)
   end
 
   def new

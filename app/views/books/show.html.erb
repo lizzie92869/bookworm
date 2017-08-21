@@ -1,1 +1,4 @@
 <%= link_to 'Back to Books', books_path %>
+<div>
+  <%= render partial: 'book', locals: { book: @book } %>
+</div>
