@@ -85,6 +85,11 @@
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  &:hover {
+    transform: scale(1.035);
+    transition: all ease-in-out .2s
+  }
 }
 
 .book > a {
@@ -94,6 +99,7 @@
   color: #484848;
   text-decoration: none;
   border-radius: 2px;
+  text-indent: -9999px;
 }
 
 .book-options {

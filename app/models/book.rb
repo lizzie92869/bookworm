@@ -1,6 +1,8 @@
 class Book < ApplicationRecord
   #paperclip
-  has_attached_file :cover_image, styles: { medium: "300x300", thumb: "75x150" }, default_url: ""
+  has_attached_file :cover_image, styles: { medium: "300x300", thumb: "75x150" },
+                                  default_url: ""
+
   validates_attachment_content_type :cover_image, content_type: /\Aimage\/.*\z/
 
   validates_presence_of :title, :book_code

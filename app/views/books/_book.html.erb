@@ -1,4 +1,4 @@
-<div class="book" style="background-image: url(<%= book.cover_image.url(:thumb) %>)" data-bookimg="<%= book.cover_image.url(:thumb) %>">
+<div class="book" style="background-image: url(<%= book.cover_image.url(:medium) %>)" data-bookimg="<%= book.cover_image.url(:medium) %>">
   <a href="<%= book_path(book) %>">
     <h3><%= book.title %></h3>
   </a>
