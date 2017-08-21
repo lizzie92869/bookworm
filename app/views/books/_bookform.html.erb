@@ -16,11 +16,7 @@
           <%= f.file_field :cover_image, accept: 'image/png, image/jpeg' %>
         </fieldset>
         <div class="cover-image-pic">
-          <% if !@book.try(:cover_image).blank? %>
-            <%= image_tag(@book.try(:cover_image), width: 75, height: 150) %>
-          <% else %>
-            No Cover Image
-          <% end %>
+          <%= image_tag(@book.cover_image.url(:medium)) %>
         </div>
       </div>
       <div class="space-1">
