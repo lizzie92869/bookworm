@@ -1,5 +1,5 @@
 <div class="book" style="background-image: url(<%= book.cover_image.url(:medium) %>)" data-bookimg="<%= book.cover_image.url(:medium) %>">
-  <a href="<%= book_path(book) %>">
+  <a href="<%= book_path(book) %>" aria-label="<%= book.title %> table of contents">
     <h3><%= book.title %></h3>
   </a>
   <div class="book-options">
