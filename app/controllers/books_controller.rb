@@ -35,7 +35,7 @@ class BooksController < ApplicationController
 
   def destroy
     @book.destroy if @book
-    redirect_to book_path
+    redirect_to books_path
   end
 
   private
