@@ -1,10 +1,7 @@
 <%= link_to 'Create Book', new_book_path %>
-<ul>
+
+<div class="books-container">
   <% @books.each do |book| %>
-    <li>
-      <a href="<%= book_path(book) %>"><%= image_tag(book.cover_image.url(:thumb))%><%= book.title %></a>
-      <%= link_to 'Edit', edit_book_path(book) %>
-      <%= link_to 'Delete', book_path(book), method: :delete %>
-    </li>
+    <%= render partial: 'book', locals: { book: book } %>
   <% end %>
-</ul>
+</div>

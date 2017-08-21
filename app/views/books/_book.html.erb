@@ -1,0 +1,9 @@
+<div class="book" style="background-image: url(<%= book.cover_image.url(:thumb) %>)" data-bookimg="<%= book.cover_image.url(:thumb) %>">
+  <a href="<%= book_path(book) %>">
+    <h3><%= book.title %></h3>
+  </a>
+  <div class="book-options">
+    <%= link_to 'Edit', edit_book_path(book) %> |
+    <%= link_to 'Delete', book_path(book), method: :delete %>
+  </div>
+</div>

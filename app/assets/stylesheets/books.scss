@@ -63,3 +63,55 @@
     background: darken(dodgerblue, 20%);
   }
 }
+
+.books {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+.book {
+  position: relative;
+  float: left;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #aaa;
+  margin: 10px;
+  width: 175px;
+  height: 250px;
+  border-radius: 2px;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.book > a {
+  display: block;
+  width: 175px;
+  height: 250px;
+  color: #484848;
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+.book-options {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  color: #484848;
+  padding: 5px;
+}
+
+.book-options > a {
+  color: #484848;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    color: darkblue;
+  }
+}
