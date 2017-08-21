@@ -1,4 +1,6 @@
 <div class="panel">
+  <%= render partial: 'shared/error_messages', locals: { target: @book } %>
+  
   <div class="">
     <%= form_for @book do |f| %>
       <div class="space-1">
