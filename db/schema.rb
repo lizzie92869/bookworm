@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170821000148) do
+ActiveRecord::Schema.define(version: 20170822214133) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20170821000148) do
     t.integer "cover_image_file_size"
     t.datetime "cover_image_updated_at"
     t.index ["book_code"], name: "index_books_on_book_code", unique: true
+  end
+
+  create_table "chapters", force: :cascade do |t|
+    t.string "chapter_title"
+    t.string "language", default: "en"
+    t.string "status", default: "unpublished"
+    t.datetime "release_date"
+    t.string "content"
+    t.integer "chapter_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
