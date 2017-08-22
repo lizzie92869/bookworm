@@ -5,11 +5,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
-    #render_json_and_html(@books)
-    respond_to do |f|
-      f.html
-      f.json { render json: @books }
-    end
+    render_json_and_html(@books)
   end
 
   def show
