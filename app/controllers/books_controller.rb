@@ -41,6 +41,11 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
+  def search
+    @books = Book.by_title(params[:query])
+    render_json_and_html(@books)
+  end
+
   private
 
   def set_book
