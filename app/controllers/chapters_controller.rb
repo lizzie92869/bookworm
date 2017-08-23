@@ -13,13 +13,13 @@ class ChaptersController < ApplicationController
     end
 
     def new
-      @chapter = Chapter.new
+      @chapter = Chapter.new(book_id: params[:book_id])
     end
 
     def create
       @chapter = Chapter.new(chapter_params)
       if @chapter.save
-        redirect_to chapter_path(@chapter)
+        redirect_to book_chapter_path(@chapter)
       else
         render :new
       end
@@ -30,7 +30,7 @@ class ChaptersController < ApplicationController
 
     def update
       if @chapter.update(chapter_params)
-        redirect_to chapter_path(@chapter)
+        redirect_to book_chapter_path(@chapter)
       else
         render :edit
       end
@@ -38,12 +38,12 @@ class ChaptersController < ApplicationController
 
     def destroy
       @chapter.destroy if @chapter
-      redirect_to chapters_path
+      redirect_to book_chapters_path
     end
 
     private
 
-    def set_book
+    def set_chapter
       @chapter = Chapter.find(params[:id])
     end
 
@@ -58,6 +58,5 @@ class ChaptersController < ApplicationController
         :chapter_number
       )
     end
-  end
 
 end
