@@ -61,7 +61,7 @@ database
 user uses has_secure_password
 user
 	- id
-	- name "username"
+	- name
 	- email
 	- password_digest
 	- role, default: 1 "basic member"
