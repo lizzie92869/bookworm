@@ -1,5 +1,19 @@
 require 'rails_helper'
 
-RSpec.describe Chapter, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Chapter do
+  let(:chapter){ Chapter.new }
+  subject { chapter }
+
+  context 'title' do
+    it { should respond_to(:title) }
+    it 'validates presence of title' do
+      chapter.valid?
+      expect(chapter.errors).to have_key(:title)
+    end
+  end
+
+
+
+
+  
 end
