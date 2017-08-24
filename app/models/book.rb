@@ -1,7 +1,7 @@
 class Book < ApplicationRecord
   has_many :chapters
 
-  
+
   #paperclip
   has_attached_file :cover_image, styles: { medium: "300x300", thumb: "75x150" },
                                   default_url: "black-noimg.jpg"
