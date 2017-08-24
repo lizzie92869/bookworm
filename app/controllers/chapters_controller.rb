@@ -9,6 +9,7 @@ class ChaptersController < ApplicationController
     end
 
     def show
+      @book = Book.find_by_id(params[:book_id])
       render_json_and_html(@chapter)
     end
 
