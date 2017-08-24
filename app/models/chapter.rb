@@ -1,5 +1,9 @@
 class Chapter < ApplicationRecord
-  belongs_to :book, dependent: :destroy
+  #counter_cache use the chapters_count column in table
+  #only works for newly added/removed records, have to recalc if existing records
+  #use following Book.find_each { |c| Book.reset_counters(c.id, :chapters)}
+  #this will update to correct values
+  belongs_to :book, dependent: :destroy, :counter_cache => true
 
   validates_presence_of :chapter_number, :release_date, :content
 
