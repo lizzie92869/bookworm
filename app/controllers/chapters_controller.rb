@@ -4,7 +4,7 @@ class ChaptersController < ApplicationController
     before_action :set_chapter, only: [:show, :edit, :update, :destroy]
 
     def index
-      @chapter = Chapter.all
+      @chapters = Chapter.all
       render_json_and_html(@chapter)
     end
 
@@ -19,7 +19,7 @@ class ChaptersController < ApplicationController
     def create
       @chapter = Chapter.new(chapter_params)
       if @chapter.save
-        redirect_to book_chapter_path(@chapter)
+        redirect_to book_chapter_path(@chapter.book_id, @chapter)
       else
         render :new
       end
@@ -30,15 +30,16 @@ class ChaptersController < ApplicationController
 
     def update
       if @chapter.update(chapter_params)
-        redirect_to book_chapter_path(@chapter)
+        redirect_to book_chapter_path(@chapter.book_id, @chapter)
       else
         render :edit
       end
     end
 
     def destroy
+      bookid = @chapter.book_id
       @chapter.destroy if @chapter
-      redirect_to book_chapters_path
+      redirect_to book_chapters_path(bookid)
     end
 
     private
