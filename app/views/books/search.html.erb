@@ -1,0 +1,14 @@
+<a href="<%= new_book_path %>">
+  <button type="button" class="btn-book-new">Create Book</button>
+</a>
+<div class="book-search">
+  <%= form_tag("/books/search", method: 'get') do %>
+    <%= text_field_tag :query, nil, placeholder: 'Search Books...', class: 'search-bar' %>
+    <%= submit_tag 'Search', name: '', class: 'search-submit' %>
+  <% end %>
+</div>
+<div class="books-container">
+  <% @books.each do |book| %>
+    <%= render partial: 'book', locals: { book: book } %>
+  <% end %>
+</div>

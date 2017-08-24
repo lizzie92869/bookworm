@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  #has to be outside books block, was not routing properly
+  get '/books/search', to: 'books#search', as: 'book_search'
+  resources :books do
+    resources :chapters
+  end
 end

@@ -1,0 +1,13 @@
+<%= link_to 'All Books', books_path %> <%= link_to "Back to Index", "/books/#{params[:book_id]}" %>
+<article>
+  <header>
+    <h1><%= link_to @book.title, book_path(@book) %> : Chapter <%= @chapter.chapter_number %></h1>
+      <%= render 'chapternav' %>
+  </header>
+  <p class="chapter-content">
+    <%= @chapter.content %>
+  </p>
+  <footer>
+    <%= render 'chapternav' %>
+  </footer>
+</article>
