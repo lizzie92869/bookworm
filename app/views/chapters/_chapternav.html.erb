@@ -1,4 +1,8 @@
 <div class="chapter-nav">
-  <%= link_to '« Prev Chapter', '' %>
-  <%= link_to 'Next Chapter »', '', style: 'float:right;' %>
+  <% if @chapter.chapter_number > 1 %>
+    <a href="<%= "/books/#{@chapter.book_id}/chapters/#{@chapter.chapter_number - 1}" %>">Prev Chapter</a>
+  <% end %>
+  <% if @chapter.chapter_number < @book.chapters.size %>
+    <%= link_to 'Next Chapter »', book_chapter_path(@chapter.book_id, @chapter.chapter_number + 1), style: 'float:right;' %>
+  <% end %>
 </div>

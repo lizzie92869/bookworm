@@ -20,7 +20,7 @@ class ChaptersController < ApplicationController
     def create
       @chapter = Chapter.new(chapter_params)
       if @chapter.save
-        redirect_to book_chapter_path(@chapter.book_id, @chapter)
+        redirect_to book_chapter_path(@chapter.book_id, @chapter.chapter_number)
       else
         render :new
       end
@@ -31,7 +31,7 @@ class ChaptersController < ApplicationController
 
     def update
       if @chapter.update(chapter_params)
-        redirect_to book_chapter_path(@chapter.book_id, @chapter)
+        redirect_to book_chapter_path(@chapter.book_id, @chapter.chapter_number)
       else
         render :edit
       end
