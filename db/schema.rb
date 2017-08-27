@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170820215317) do
+ActiveRecord::Schema.define(version: 20170826235746) do
+
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.string "book_code"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "cover_image_file_name"
+    t.string "cover_image_content_type"
+    t.integer "cover_image_file_size"
+    t.datetime "cover_image_updated_at"
+    t.index ["book_code"], name: "index_books_on_book_code", unique: true
+  end
+
+  create_table "chapters", force: :cascade do |t|
+    t.string "chapter_title"
+    t.string "language", default: "en"
+    t.string "status", default: "unpublished"
+    t.datetime "release_date"
+    t.string "content"
+    t.integer "chapter_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "book_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -22,6 +47,7 @@ ActiveRecord::Schema.define(version: 20170820215317) do
     t.boolean "verified", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_repeated"
   end
 
 end
