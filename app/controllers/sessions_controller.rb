@@ -11,8 +11,8 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		session.delete
-		redirect_to new_path
+		cookies.delete :user_id
+		redirect_to root_path
 	end
 
 end
