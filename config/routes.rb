@@ -2,13 +2,10 @@ Rails.application.routes.draw do
 
 
 root 'application#index'
-get '/signup' => 'users#new'
-post '/signup' => 'users#create'
-post '/user' => 'users#create'
-post '/session' => 'sessions#create'
-get 'sessions/new'
+resources :users 
 
-books
+
+# books
 
  get '/books', to: 'books#index'
  get '/books/new', to: 'books#new'
@@ -19,20 +16,20 @@ books
  delete '/books/:id', to: 'books#destroy'
  post '/books', to: 'books#create'
 
- users
+# users
 
-
- /users
- get '/users/new', to: 'users#new' => show signup  form
- post '/users', to: 'users#create'
+ # get '/users/new', to: 'users#new'
+ # post '/users', to: 'users#create'
 
  get '/signup', to: 'users#new'
  post '/signup', to: 'users#create'
 
- session, we control login process
-http://site.com/<whatto type here>
+# sessions
+
 get '/signin', to: 'sessions#new'
+get 'sessions/new', to: 'sessions#new' 
 post '/signin', to: 'sessions#create'
+post '/sessions', to: 'sessions#create'
 delete '/logout', to: 'sessions#destroy'
 
 
