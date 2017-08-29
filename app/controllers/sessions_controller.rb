@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 
 	#login form
 	def new
+		@user = User.new
 	end
 
 	def create

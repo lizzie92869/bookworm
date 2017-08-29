@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :logged_in?
-  before_action :authenticate_user!
+ 
 
   private
 
@@ -19,6 +18,4 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !current_user.nil?
   end
-end
-
 end
