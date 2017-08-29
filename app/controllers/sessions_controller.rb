@@ -1,17 +1,22 @@
 class SessionsController < ApplicationController
 
+	#login form
 	def new
 	end
 
 	def create
 	  user = User.find_by(name: params[:user][:name])
-	  return head(:forbidden) unless user.authenticate(params[:user][:password_digest])
-	  session[:user_id] = user.id
-	  redirect_to root_path
+	  if user && user.authenticate(params[:user][:password])
+		  session[:user_id] = user.id
+		  redirect_to root_path
+		else
+			render :new
+		end
 	end
 
 	def destroy
-		cookies.delete :user_id
+		session.delete :user_id
+		@current_user = nil
 		redirect_to root_path
 	end
 

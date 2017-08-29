@@ -7,16 +7,13 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate_user!
-    return if logged_in?
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.json { render json: {}, status: :unauthorized }
+    if !logged_in?
+      redirect_to signin_path
     end
   end
 
   def current_user
-    return nil unless cookies.permanent.signed[:user_id].present?
-    @current_user ||= User.find_by(id: cookies.permanent.signed[:user_id])
+    @current_user ||= User.find_by(id: session[:user_id])
   end
 
   def logged_in?

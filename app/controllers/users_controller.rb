@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+  #signup form
   def new
     @user = User.new
   end
@@ -10,7 +11,7 @@ class UsersController < ApplicationController
        session[:user_id] = @user.id
        redirect_to root_path, notice: "Account successfully created"
      else
-       redirect_to signup_path
+       render :new
      end
    end
 
@@ -19,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  
+
    private
 
 
