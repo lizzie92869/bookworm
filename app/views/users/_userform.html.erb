@@ -16,6 +16,10 @@
     <%= f.email_field :email, class: "input" %>
   </div>
   <div class="group">
+    <%= f.check_box :remember_password, id: "check", class: "icon"%> 
+    <%= f.label "Keep me Signed in" %>
+  </div>
+  <div class="group">
       <%= f.submit "Create Account", class: "button" %>
   </div>
 <% end %>

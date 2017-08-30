@@ -8,6 +8,10 @@
     <%= f.password_field :password, class: "input" %>
   </div>
   <div class="group">
+    <%= f.check_box :remember_password, id: "check", class: "icon"%> 
+    <%= f.label "Keep me Signed in" %>
+  </div>
+  <div class="group">
       <%= f.submit "Enter", class: "button" %>
   </div>
 <% end %>

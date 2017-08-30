@@ -15,6 +15,9 @@ class UsersController < ApplicationController
      end
    end
 
+   def remember_me
+   end
+
 
   def show
     @user = User.find(params[:id])
