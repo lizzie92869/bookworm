@@ -24,6 +24,7 @@ resources :users
  get '/signup', to: 'users#new'
  post '/signup', to: 'users#create'
  get '/forgot', to: 'users#forgot'
+ 
 # sessions
 
 get '/signin', to: 'sessions#new'
