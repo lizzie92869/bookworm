@@ -23,14 +23,16 @@ resources :users
 
  get '/signup', to: 'users#new'
  post '/signup', to: 'users#create'
-
+ get '/forgot', to: 'users#forgot'
 # sessions
 
 get '/signin', to: 'sessions#new'
-get 'sessions/new', to: 'sessions#new' 
+get '/sessions/new', to: 'sessions#new' 
 post '/signin', to: 'sessions#create'
 post '/sessions', to: 'sessions#create'
 delete '/logout', to: 'sessions#destroy'
+
+
 
 
 

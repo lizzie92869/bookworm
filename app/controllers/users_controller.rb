@@ -18,6 +18,10 @@ class UsersController < ApplicationController
    def remember_me
    end
 
+   def forgot
+    @user = User.new
+   end
+
 
   def show
     @user = User.find(params[:id])
