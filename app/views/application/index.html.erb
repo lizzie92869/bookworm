@@ -1,1 +1,6 @@
 <h1>test</h1>
+<% if flash[:alert] %>
+      <div id="alert">
+         <%= flash[:alert] %> 
+      </div>
+<% end %>
