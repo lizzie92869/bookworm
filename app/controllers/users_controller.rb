@@ -17,10 +17,16 @@ class UsersController < ApplicationController
    end
 
    def remember_me
+
    end
 
    def forgot
-    @user = User.new
+     @user = User.find_by(params[:email])
+   end
+
+
+   def update
+    # @user = User.find_by(params[:email])
    end
 
 

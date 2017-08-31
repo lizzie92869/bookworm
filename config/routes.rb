@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 root 'application#index'
+get '/users/forgot', to: 'users#forgot'
 resources :users 
 
 
@@ -23,8 +24,12 @@ resources :users
 
  get '/signup', to: 'users#new'
  post '/signup', to: 'users#create'
- get '/forgot', to: 'users#forgot'
+
+
+ # get '/users/update', to: 'users#update'
+ put '/users/forgot', to: 'users#update'
  
+
 # sessions
 
 get '/signin', to: 'sessions#new'
