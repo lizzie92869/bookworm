@@ -19,7 +19,7 @@ resources :users
 
 # users
 
- # get '/users/new', to: 'users#new'
+  # get '/users/new', to: 'users#new'
  # post '/users', to: 'users#create'
 
  get '/signup', to: 'users#new'
