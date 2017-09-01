@@ -18,8 +18,11 @@ class UsersController < ApplicationController
      end
    end
 
-   def remember_me
+  def new_token
+      SecureRandom.urlsafe_base64
+  end
 
+   def remember_me
    end
 
    def forgot
