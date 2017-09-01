@@ -32,8 +32,8 @@ module Bookworm
     domain: "gmail.com",
     authentication: "plain",
     enable_starttls_auto: true, 
-    user_name: ENV[""],
-    password: ENV[""]
+    user_name: ENV["lizzie.acheson@gmail.com"],
+    password: ENV["H@shish2015!"]
 
   }
     # Don't generate system test files.
