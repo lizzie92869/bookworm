@@ -1,0 +1,32 @@
+<div class="panel">
+  <%= render partial: 'shared/error_messages', locals: { target: @chapter } %>
+
+  <div class="">
+    <%= form_for(@chapter, url: { action: formaction }) do |f| %>
+      <div class="space-1">
+        <%= f.text_field :chapter_title, class: "decorative-input", placeholder: "Chapter title", "aria-label": "Chapter Title" %>
+      </div>
+      <div class="space-1">
+        <%= f.text_field :language, class: "decorative-input", placeholder: "Language", "aria-label": "Select Language" %>
+      </div>
+      <div class="space-1">
+        <%= f.text_field :status, class: "decorative-input", placeholder: "Chapter status", "aria-label": "Chapter status" %>
+      </div>
+      <div class="space-1">
+        <%= f.date_field :release_date, class: "decorative-input", placeholder: "Chapter release date", "aria-label": "Chapter release date" %>
+      </div>
+      <div class="space-1">
+        <%= f.number_field :chapter_number, class: "decorative-input", placeholder: "Chapter number", "aria-label": "Chapter number" %>
+      </div>
+      <div class="space-1">
+        <%= f.text_area :content, class: "decorative-input", placeholder: "Chapter content", "aria-label": "Chapter content" %>
+      </div>
+      <div class="space-1">
+        <%= f.hidden_field :book_id, class: "decorative-input", value: @chapter.book_id %>
+      </div>
+      <div class="space-1">
+        <%= f.submit class: 'submit-btn' %>
+      </div>
+    <% end %>
+  </div>
+</div>

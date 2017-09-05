@@ -1,0 +1,2 @@
+<%= link_to 'Back to Books', books_path %> <%= link_to 'Back to Index', book_path(@chapters[0].book_id) %> <%= link_to 'Create Chapter', new_book_chapter_path(@chapters[0].book_id) %>
+<%= render 'chapterlist', chapters: @chapters %>
