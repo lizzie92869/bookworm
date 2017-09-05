@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+#before_action :authorize_user, except: [:index, :new, :create]
   #signup form
   def new
     @user = User.new
@@ -8,11 +8,12 @@ class UsersController < ApplicationController
   def create
   @user = User.new(user_params)
      if @user.save
-       session[:user_id] = @user.id
+      
+       # session[:user_id] = @user.id
        #send email confirmation
        UserMailer.signup_confirmation(@user).deliver
        redirect_to root_path
-       flash[:alert] = "Account succesfully created!"
+       # flash[:alert] = "Account succesfully created!"
      else
        render :new
      end

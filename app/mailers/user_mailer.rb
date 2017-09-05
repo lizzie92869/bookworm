@@ -5,8 +5,8 @@ class UserMailer < ApplicationMailer
 		@user = user
 
 		#url for developpement to change for production 
-		# @url = "http://localhost:3000/verify/#{User.new_token}"
-		# @url = "http://localhost:3000/verify"
+		#@url = "http://localhost:3000/verify/#{User.new_token}"
+		#@url = "http://localhost:3000/verify/#{}"
 		mail(to: @user.email, subject: 'Sign Up Confirmation')
 		
 	end
