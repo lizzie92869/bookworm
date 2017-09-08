@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 root 'application#index'
 
+
     # users
     resources :users 
     get '/signup', to: 'users#new'
@@ -16,6 +17,7 @@ root 'application#index'
     post '/signin', to: 'sessions#create'
     post '/sessions', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
+    get '/auth/:provider/callback', to: 'sessions#create'
 
     # books
     #has to be outside books block, was not routing properly
