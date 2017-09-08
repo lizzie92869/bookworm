@@ -8,12 +8,11 @@ class UsersController < ApplicationController
   def create
   @user = User.new(user_params)
      if @user.save
-      
-       # session[:user_id] = @user.id
+       #save the user
        #send email confirmation
        UserMailer.signup_confirmation(@user).deliver
        redirect_to root_path
-       # flash[:alert] = "Account succesfully created!"
+       flash[:alert] = "Please confirm your account by clicking the link in the email you just sent you."
      else
        render :new
      end

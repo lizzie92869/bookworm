@@ -39,7 +39,7 @@ Rails.application.configure do
     :domain               => 'gmail.com',
     :user_name            => '',
     :password             => '',
-    :authentication       => plain,
+    :authentication       => "plain",
     :enable_starttls_auto => true
 
   }
