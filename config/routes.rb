@@ -17,6 +17,7 @@ root 'application#index'
     post '/signin', to: 'sessions#create'
     post '/sessions', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
+    #Omniauth
     get '/auth/:provider/callback', to: 'sessions#create'
 
     # books
