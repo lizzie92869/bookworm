@@ -12,7 +12,11 @@ class User < ActiveRecord::Base
 # validates :password_repeated, presence: true
 
   
-has_secure_password
+def email_activate
+    self.email_confirmed = true
+    self.confirm_token = nil
+    save!(:validate => false)
+  end 
 
 private
 def confirmation_token
