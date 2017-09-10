@@ -4,7 +4,12 @@ root 'application#index'
 
 
     # users
-    resources :users 
+    resources :users do
+        member do
+            get :confirm_email
+        end
+    end
+    
     get '/signup', to: 'users#new'
     post '/signup', to: 'users#create'
     put '/users/forgot', to: 'users#update'

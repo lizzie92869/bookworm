@@ -18,10 +18,6 @@ class UsersController < ApplicationController
      end
    end
 
-  def new_token
-      SecureRandom.urlsafe_base64
-  end
-
    def remember_me
    end
 
