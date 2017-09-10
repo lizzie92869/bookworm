@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170828000905) do
+ActiveRecord::Schema.define(version: 20170910221608) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -44,12 +44,12 @@ ActiveRecord::Schema.define(version: 20170828000905) do
     t.string "role", default: "1"
     t.string "password_digest"
     t.string "uid"
-    t.integer "verification_code"
-    t.boolean "verified", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_repeated"
     t.string "remember_password"
+    t.boolean "email_confirmed", default: false
+    t.string "confirm_token"
   end
 
 end
