@@ -13,7 +13,9 @@ class UsersController < ApplicationController
        UserMailer.signup_confirmation(@user).deliver
        redirect_to root_path
        flash[:alert] = "Please confirm your account by clicking the link in the email you just sent you."
+       redirect_to root_url
      else
+       flash[:error] = "Ooooppss, something went wrong!"
        render :new
      end
    end
