@@ -11,9 +11,8 @@ class UsersController < ApplicationController
        #save the user
        #send email confirmation
        UserMailer.signup_confirmation(@user).deliver
-       redirect_to root_path
        flash[:alert] = "Please confirm your account by clicking the link in the email you just sent you."
-       redirect_to root_url
+       redirect_to root_path
      else
        flash[:error] = "Ooooppss, something went wrong!"
        render :new
@@ -37,7 +36,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def co nfirm_email
+  def confirm_email
       user = User.find_by_confirm_token(params[:id])
       if user
         user.email_activate
