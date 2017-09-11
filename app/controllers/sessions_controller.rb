@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
 
 		else
 		# 	#normal login with email and psw
-		  user = User.find_by(email: params[:user][:email])
+		  @user = User.find_by(email: params[:user][:email])
 		  if user && user.authenticate(params[:user][:password])
 		  	if user.email_confirmed
 			  session[:user_id] = user.id

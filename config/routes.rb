@@ -9,7 +9,7 @@ root 'application#index'
             get :confirm_email
         end
     end
-    
+
     get '/signup', to: 'users#new'
     post '/signup', to: 'users#create'
     put '/users/forgot', to: 'users#update'
@@ -22,6 +22,8 @@ root 'application#index'
     post '/signin', to: 'sessions#create'
     post '/sessions', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
+    # patch '/signin', to: 'sessions#update'
+    
     #Omniauth
     get '/auth/:provider/callback', to: 'sessions#create'
 
