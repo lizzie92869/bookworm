@@ -22,8 +22,8 @@ root 'application#index'
     post '/signin', to: 'sessions#create'
     post '/sessions', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
-    # patch '/signin', to: 'sessions#update'
-    
+    patch '/signin', to: 'sessions#new'
+
     #Omniauth
     get '/auth/:provider/callback', to: 'sessions#create'
 

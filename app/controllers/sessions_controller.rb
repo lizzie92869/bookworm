@@ -30,21 +30,23 @@ class SessionsController < ApplicationController
 		else
 		# 	#normal login with email and psw
 		  @user = User.find_by(email: params[:user][:email])
-		  if user && user.authenticate(params[:user][:password])
-		  	if user.email_confirmed
-			  session[:user_id] = user.id
-			  redirect_to root_path
+		  if @user && @user.authenticate(params[:user][:password])
+		  	if @user.email_confirmed
+			  session[:user_id] = @user.id
 			  flash[:alert] = "Succesfully logged in from traditionnal sign in!"
+			  redirect_to root_path
 		  	else
 		  	  flash.now[:error] = 'Please activate your account by following the instructions in the account confirmation email you received to proceed'
 			  render :new
 		  	end
 		  else
-		  	flash.now[:error] = 'Invalid email/password combination'
         	render 'new'
+        	flash.now[:error] = 'Invalid email/password combination'
 		  end
 		end
 	end
+
+
 
 	def destroy
 		session.delete :user_id
