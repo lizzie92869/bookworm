@@ -1,2 +1,5 @@
-<h1>Dear <%@user.email%>,</h1>
-<p> Thank you for signing up to Bookworm. Please <a>confirm your account</a> </p>
+Hi <%= @user.name %>,
+
+Thanks for registering! To confirm your registration click the URL below.
+
+<%= confirm_email_user_url(@user.confirm_token) %>

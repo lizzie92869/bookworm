@@ -8,20 +8,16 @@ class UsersController < ApplicationController
   def create
   @user = User.new(user_params)
      if @user.save
-      
-       # session[:user_id] = @user.id
+       #save the user
        #send email confirmation
        UserMailer.signup_confirmation(@user).deliver
+       flash[:alert] = "Please confirm your account by clicking the link in the email you just sent you."
        redirect_to root_path
-       # flash[:alert] = "Account succesfully created!"
      else
+       flash[:error] = "Ooooppss, something went wrong!"
        render :new
      end
    end
-
-  def new_token
-      SecureRandom.urlsafe_base64
-  end
 
    def remember_me
    end
@@ -40,6 +36,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def confirm_email
+      user = User.find_by_confirm_token(params[:id])
+      if user
+        user.email_activate
+        flash[:success] = "Welcome to the Sample App! Your email has been confirmed.
+        Please sign in to continue."
+        redirect_to signin_url
+      else
+        flash[:error] = "Sorry. User does not exist"
+        redirect_to root_url
+      end
+  end
 
    private
 

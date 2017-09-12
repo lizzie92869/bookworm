@@ -2,8 +2,14 @@ Rails.application.routes.draw do
 
 root 'application#index'
 
+
     # users
-    resources :users 
+    resources :users do
+        member do
+            get :confirm_email
+        end
+    end
+
     get '/signup', to: 'users#new'
     post '/signup', to: 'users#create'
     put '/users/forgot', to: 'users#update'
@@ -16,6 +22,10 @@ root 'application#index'
     post '/signin', to: 'sessions#create'
     post '/sessions', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
+    patch '/signin', to: 'sessions#new'
+
+    #Omniauth
+    get '/auth/:provider/callback', to: 'sessions#create'
 
     # books
     #has to be outside books block, was not routing properly

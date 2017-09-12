@@ -35,7 +35,12 @@ gem 'turbolinks', '~> 5'
 gem 'rspec-rails'
 gem 'paperclip', '~>5.0.0'
 gem 'active_model_serializers', '0.9.3'
-
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-linkedin'
+gem 'dotenv-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :development, :test do
