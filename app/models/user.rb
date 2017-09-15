@@ -1,6 +1,7 @@
 
 class User < ActiveRecord::Base
   before_create :confirmation_token
+  before_save { self.email = email.downcase }
   has_secure_password
   
 
@@ -10,21 +11,25 @@ class User < ActiveRecord::Base
 #                     format: { with: VALID_EMAIL_REGEX },
 #                     uniqueness: { case_sensitive: false }
 # validates :name, presence: true, uniqueness:true, length: { maximum: 30 }                 
-# validates :password, presence: true, length: { maximum: 30, minimum: 6 }
-# validates :password_repeated, presence: true
+validates :password, presence: true, length: { maximum: 30, minimum: 6 }, confirmation: true
+  validates :password_confirmation, presence: true
 
-  
+
+
+ # confirm the email   
 def email_activate
     self.email_confirmed = true
     self.confirm_token = nil
     save!(:validate => false)
   end 
 
+
 private
-def confirmation_token
-      if self.confirm_token.blank?
-          self.confirm_token = SecureRandom.urlsafe_base64.to_s
+  # return a random token to verify the email
+  def confirmation_token
+        if self.confirm_token.blank?
+            self.confirm_token = SecureRandom.urlsafe_base64.to_s
+        end
       end
-    end
 
 end
