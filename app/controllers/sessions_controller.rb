@@ -29,20 +29,36 @@ class SessionsController < ApplicationController
 
 		else
 		# 	#normal login with email and psw
+		   #@user = User.find_by(email: params[:user][:email])
+		  # if @user && @user.authenticate(params[:user][:password])
+		  # 	if @user.email_confirmed
+			 #  session[:user_id] = @user.id
+			 #  flash[:alert] = "Succesfully logged in from traditionnal sign in!"
+			 #  redirect_to root_path
+		  # 	else
+		  # 	  flash.now[:error] = 'Please activate your account by following the instructions in the account confirmation email you received to proceed'
+			 #  render :new
+		  # 	end
+		  # else
+    #     	render 'new'
+    #     	flash.now[:error] = 'Invalid email/password combination'
+		  # end
+
+		  #normal login with email and psw
 		  @user = User.find_by(email: params[:user][:email])
-		  if @user && @user.authenticate(params[:user][:password])
-		  	if @user.email_confirmed
-			  session[:user_id] = @user.id
-			  flash[:alert] = "Succesfully logged in from traditionnal sign in!"
-			  redirect_to root_path
-		  	else
-		  	  flash.now[:error] = 'Please activate your account by following the instructions in the account confirmation email you received to proceed'
-			  render :new
-		  	end
-		  else
-        	render 'new'
-        	flash.now[:error] = 'Invalid email/password combination'
-		  end
+          if @user && @user.authenticate(params[:user][:password]) 
+                session[:user_id] = @user.id
+                if params[:remember_me]
+                    cookies.permanent.signed[:user_id] = user.id
+                    cookies.permanent[:auth_token] = @user.auth_token
+                end
+            
+            flash[:alert] = "Succesfully logged in from traditionnal sign in!"
+            redirect_to root_path
+          else
+            render 'new'
+            flash.now[:error] = 'Invalid email/password combination'
+          end
 		end
 	end
 
@@ -50,6 +66,7 @@ class SessionsController < ApplicationController
 
 	def destroy
 		session.delete :user_id
+		cookies.delete(:auth_token)
 		@current_user = nil
 		redirect_to root_path
 	end

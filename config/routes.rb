@@ -16,7 +16,6 @@ root 'application#index'
     get '/users/forgot', to: 'users#forgot' 
 
     # sessions
-
     get '/signin', to: 'sessions#new'
     get '/sessions/new', to: 'sessions#new' 
     post '/signin', to: 'sessions#create'
@@ -26,6 +25,9 @@ root 'application#index'
 
     #Omniauth
     get '/auth/:provider/callback', to: 'sessions#create'
+
+    #password_resets
+    resources :password_resets
 
     # books
     #has to be outside books block, was not routing properly

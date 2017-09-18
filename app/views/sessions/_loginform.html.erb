@@ -8,15 +8,17 @@
     <%= f.password_field :password, class: "input" %>
   </div>
   <div class="group">
-    <%= f.check_box :remember_password, id: "check", class: "icon"%> 
+    <%= f.check_box :remember_digest, id: "check", class: "icon"%> 
     <%= f.label "Keep me Signed in" %>
   </div>
   <div class="group">
       <%= f.submit "Enter", class: "button" %>
   </div>
+
   <div class="hr"></div>
           <div class="foot-lnk">
-            <a href="/users/forgot">Forgot Password?</a>
+            <a href="/password_resets/new">Forgot Password?</a>
+             <%= check_box_tag :remember_me, 1, params[:remember_me] %>
           </div>
 
 <% end %>
