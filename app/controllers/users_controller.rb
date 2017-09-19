@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 #before_action :authorize_user, except: [:index, :new, :create]
   #signup form
+
   def new
     @user = User.new
   end
@@ -11,10 +12,10 @@ class UsersController < ApplicationController
        #save the user
        #send email confirmation
        UserMailer.signup_confirmation(@user).deliver
-       flash[:alert] = "Please confirm your account by clicking the link in the email you just sent you."
+       flash[:message] = "Please confirm your account by clicking the link in the email you just sent you."
        redirect_to root_path
      else
-       flash[:error] = "Ooooppss, something went wrong!"
+       flash[:message] = "Ooooppss, something went wrong!"
        render :new
      end
    end
@@ -28,7 +29,7 @@ class UsersController < ApplicationController
 
 
    def update
-    # @user = User.find_by(params[:email])
+    @user = User.find_by(params[:email])
    end
 
 
@@ -40,11 +41,11 @@ class UsersController < ApplicationController
       user = User.find_by_confirm_token(params[:id])
       if user
         user.email_activate
-        flash[:success] = "Welcome to the Sample App! Your email has been confirmed.
+        flash[:message] = "Welcome to the Sample App! Your email has been confirmed.
         Please sign in to continue."
         redirect_to signin_url
       else
-        flash[:error] = "Sorry. User does not exist"
+        flash[:message] = "Sorry. User does not exist"
         redirect_to root_url
       end
   end
@@ -53,7 +54,7 @@ class UsersController < ApplicationController
 
 
   def user_params
-       params.require(:user).permit(:name, :email, :role, :password, :password_confirmation, :remember_password, :verification_code)
+       params.require(:user).permit(:name, :email, :role, :password, :password_confirmation, :remember_password, :password_reset_token)
   end
 
 end
