@@ -2,10 +2,13 @@
 <div class="login-wrap">
   <div class="login-html">
     <div class="login-form">
+
        <%= form_tag password_resets_path, :method => :post do %>
+
           <div class="group">
             We will send you an email to reset your password</br></br></br>
           </div>
+
           <div class="group">
             <%= label_tag :email, 'Email', class: "label" %>
             <%= email_field_tag :email, "", class: "input" %>
@@ -14,6 +17,7 @@
           <div class="group">
               <%= submit_tag "Enter", class: "button" %>
           </div>
+          
           <div class="hr"></div>
         <% end %>
       </div>

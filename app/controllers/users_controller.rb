@@ -20,6 +20,10 @@ class UsersController < ApplicationController
      end
    end
 
+    def show
+    @user = User.find_by(params[:id])
+    end
+
    def remember_me
    end
 
@@ -33,9 +37,7 @@ class UsersController < ApplicationController
    end
 
 
-  def show
-    @user = User.find(params[:id])
-  end
+ 
 
   def confirm_email
       user = User.find_by_confirm_token(params[:id])

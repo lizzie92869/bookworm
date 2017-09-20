@@ -4,6 +4,7 @@ root 'application#index'
 
 
     # users
+    get '/user_profile/:id', to: 'users#show', as: 'user_profile'
     resources :users do
         member do
             get :confirm_email

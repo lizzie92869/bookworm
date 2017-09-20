@@ -8,16 +8,10 @@
     <%= f.password_field :password, class: "input" %>
   </div>
 
-
   <div class="group">
-    <%= f.check_box :remember_digest, id: "check", class: "icon"%> 
-    <%= f.label "Keep me Signed in" %>
-  </div>
-  <div class="field">
   <%= check_box_tag :remember_me, 1, params[:remember_me] %>
   <%= label_tag :remember_me %>
-</div>
-
+  </div>
 
   <div class="group">
       <%= f.submit "Enter", class: "button" %>
@@ -25,14 +19,9 @@
 
   <div class="hr"></div>
           <div class="foot-lnk">
-            <!-- <a href="/password_resets/new">Forgot Password?</a> -->
             <p><%= link_to "Forgot password?", new_password_reset_path %></p>
              
           </div>
-
-
-
-
 
 
 <% end %>
