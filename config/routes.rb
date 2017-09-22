@@ -14,6 +14,7 @@ root 'application#index'
     get '/signup', to: 'users#new'
     post '/signup', to: 'users#create'
     put '/users/forgot', to: 'users#update' 
+    
 
     # sessions
     get '/signin', to: 'sessions#new'

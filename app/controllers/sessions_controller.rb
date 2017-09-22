@@ -31,14 +31,21 @@ class SessionsController < ApplicationController
 		  #normal login with email and psw
 		  @user = User.find_by(email: params[:user][:email])
           if @user && @user.authenticate(params[:user][:password]) 
-                session[:user_id] = @user.id
-                # cookies[:auth_token] = user.auth_token
-                if params[:remember_me]
-                    cookies.permanent.signed[:user_id] = @user.id
-                    cookies.permanent[:auth_token] = @user.auth_token
-                end
-            flash[:message] = "Succesfully logged in from traditionnal sign in!"
-            render 'users/user_profile'
+            #     #log in
+                 session[:user_id] = @user.id
+            #     # cookies[:auth_token] = user.auth_token
+            #     if params[:remember_me]
+            #         cookies.permanent.signed[:user_id] = @user.id
+            #         cookies.permanent[:auth_token] = @user.auth_token
+            #     end
+            # flash[:message] = "Succesfully logged in from traditionnal sign in!"
+            # render 'users/user_profile'
+            #log_in user
+        #set or forget persistant cookie token
+       
+        params[:remember_me] == '1' ? remember(user) : forget(user)
+        render 'users/user_profile'
+
           else
           	flash[:message] = 'Invalid email/password combination'
             render 'new'

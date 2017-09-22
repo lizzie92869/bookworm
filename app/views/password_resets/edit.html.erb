@@ -9,13 +9,13 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+  <div class="group">
+    <%= f.label :password, class: "label" %>
+    <%= f.password_field :password, class: "input" %>
   </div>
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+  <div class="group">
+    <%= f.label :password_confirmation, class: "label" %>
+    <%= f.password_field :password_confirmation, class: "input" %>
   </div>
-  <div class="actions"><%= f.submit "Update Password" %></div>
+  <div class="actions"><%= f.submit "Update Password", class: "button" %></div>
 <% end %>

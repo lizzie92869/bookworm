@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-#before_action :authorize_user, except: [:index, :new, :create]
-  #signup form
+before_action :authorize_user, except: [:index, :new, :create]
+before_action :authenticate!, except: [:new, :create]
 
   def new
     @user = User.new
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
    end
 
     def show
-    @user = User.find_by(params[:id])
+    @user = User.find_by(params[:email])
     end
 
    def remember_me
@@ -37,8 +37,6 @@ class UsersController < ApplicationController
    end
 
 
- 
-
   def confirm_email
       user = User.find_by_confirm_token(params[:id])
       if user
@@ -52,11 +50,18 @@ class UsersController < ApplicationController
       end
   end
 
+
    private
 
 
   def user_params
        params.require(:user).permit(:name, :email, :role, :password, :password_confirmation, :remember_password, :password_reset_token)
   end
+
+  def authorize_user
+    authorize @user
+  end
+
+
 
 end
