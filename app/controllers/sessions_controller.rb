@@ -41,9 +41,9 @@ class SessionsController < ApplicationController
             # flash[:message] = "Succesfully logged in from traditionnal sign in!"
             # render 'users/user_profile'
             #log_in user
-        #set or forget persistant cookie token
        
         params[:remember_me] == '1' ? remember(user) : forget(user)
+        flash[:message] = "Succesfully logged in from traditionnal sign in!"
         render 'users/user_profile'
 
           else
