@@ -1,6 +1,6 @@
 
 
-<%= form_for @user do |f| %>
+<%= form_for :user, :url => { controller: 'users', action: 'create'} do |f| %>
   <div class="group">
     <%= f.label :email, class: "label" %>
     <%= f.email_field :email, class: "input" %>

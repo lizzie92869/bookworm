@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 before_action :authorize_user, except: [:index, :new, :create]
-before_action :authenticate!, except: [:new, :create]
+before_action :authenticate_user!, except: [:new, :create]
 
   def new
     @user = User.new
@@ -59,7 +59,7 @@ before_action :authenticate!, except: [:new, :create]
   end
 
   def authorize_user
-    authorize @user
+    @current_user.email_confirmed = true
   end
 
 

@@ -30,7 +30,8 @@ class SessionsController < ApplicationController
 		else
 		  #normal login with email and psw
 		  @user = User.find_by(email: params[:user][:email])
-          if @user && @user.authenticate(params[:user][:password]) 
+          # if @user && @user.authenticate(params[:user][:password])
+          if @user && @user.authenticated?(cookies[:auth_token])  
             #     #log in
                  session[:user_id] = @user.id
             #     # cookies[:auth_token] = user.auth_token

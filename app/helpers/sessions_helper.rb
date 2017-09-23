@@ -7,7 +7,10 @@ def authenticate_user!
     end
   end
 
-
+# def authenticated?(token)
+# 	if (cookies[:auth_token] == @user.remember_digest)
+# 	end
+# end
 
 def current_user
     if (user_id = session[:user_id])
