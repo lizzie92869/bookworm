@@ -41,6 +41,7 @@ before_action :authenticate_user!, except: [:new, :create]
       user = User.find_by_confirm_token(params[:id])
       if user
         user.email_activate
+        binding.pry
         flash[:message] = "Welcome to Bookworm! Your email has been confirmed.
         Please sign in to continue."
         redirect_to signin_url
@@ -59,7 +60,9 @@ before_action :authenticate_user!, except: [:new, :create]
   end
 
   def authorize_user
-    @current_user.email_confirmed = true
+
+    @current_user.confirm_email = true if @current_user
+
   end
 
 

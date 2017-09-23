@@ -37,6 +37,13 @@ def generate_token(column)
   end while User.exists?(column => self[column])
 end
 
+
+def authenticated?(token)
+  if (token == self.remember_digest)
+    return true
+  end
+end
+
 private
   # return a random token to verify the email
   def confirmation_token
@@ -44,5 +51,7 @@ private
             self.confirm_token = SecureRandom.urlsafe_base64.to_s
         end
       end
+
+
 
 end
