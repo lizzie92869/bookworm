@@ -20,7 +20,7 @@ validates :name, presence: true, uniqueness:true, length: { maximum: 30 }
  # confirm the email   
 def email_activate
     self.email_confirmed = true
-    self.confirm_token = nil
+    # self.confirm_token = nil
     save!(:validate => false)
   end 
 
