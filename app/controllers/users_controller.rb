@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 before_action :authorize_user, except: [:index, :new, :create]
-before_action :authenticate_user!, except: [:new, :create]
+before_action :authenticate_user!, except: [:new, :create, :confirm_email]
 
   def new
     @user = User.new
@@ -39,9 +39,11 @@ before_action :authenticate_user!, except: [:new, :create]
 
   def confirm_email
       user = User.find_by(confirm_token: params[:id])
+
       if user
-        byebug
+       
         user.email_activate
+         
         flash[:message] = "Welcome to Bookworm! Your email has been confirmed.
         Please sign in to continue."
         redirect_to signin_url
@@ -56,7 +58,7 @@ before_action :authenticate_user!, except: [:new, :create]
 
 
   def user_params
-       params.require(:user).permit(:name, :email, :role, :password, :password_confirmation, :remember_password, :password_reset_token)
+       params.require(:user).permit(:name, :email, :role, :password, :password_confirmation, :remember_password, :password_reset_token, :confirm_token)
   end
 
   def authorize_user

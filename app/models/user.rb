@@ -52,6 +52,10 @@ private
         end
       end
 
-
+def authenticated_with_token?(token)
+   if (token == self.confirm_token)
+    return true
+   end
+ end
 
 end

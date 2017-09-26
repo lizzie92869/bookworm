@@ -1,23 +1,23 @@
 module SessionsHelper
 
 def authenticate_user!
-    if !logged_in?
+    if @current_user
+    log_in(@current_user)
+    else
       flash[:message] = "Please, sign in"
       redirect_to signin_path
     end
   end
 
-# def authenticated?(token)
-# 	if (cookies[:auth_token] == @user.remember_digest)
-# 	end
-# end
+
 
 def current_user
     if (user_id = session[:user_id])
       @current_user ||= User.find_by(id: user_id)
     elsif (user_id = cookies.signed[:user_id])
       user = User.find_by(id: user_id)
-      if @user && @user.authenticated?(cookies[:auth_token])
+
+      if @user && @user.authenticated_with_token?(cookies[:auth_token])
         log_in @user
         @current_user = @user
       end
