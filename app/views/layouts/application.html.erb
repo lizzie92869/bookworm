@@ -10,6 +10,7 @@
 
   <body>
 
+<%=current_user%>
 	  
   <% if logged_in? %>
   <p> logged in as: <%= current_user.email %> <%= button_to "Sign out", logout_path, method: :delete %></p>

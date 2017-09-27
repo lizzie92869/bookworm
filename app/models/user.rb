@@ -1,9 +1,9 @@
 
 class User < ActiveRecord::Base
   has_secure_password
-  before_create :confirmation_token
-  before_create { generate_token(:auth_token) }
   before_save { self.email = email.downcase }
+  before_create :confirmation_token
+  
   
   
 
@@ -20,7 +20,6 @@ validates :name, presence: true, uniqueness:true, length: { maximum: 30 }
  # confirm the email   
 def email_activate
     self.email_confirmed = true
-    # self.confirm_token = nil
     save!(:validate => false)
   end 
 
@@ -38,12 +37,6 @@ def generate_token(column)
 end
 
 
-def authenticated?(token)
-  if (token == self.remember_digest)
-    return true
-  end
-end
-
 private
   # return a random token to verify the email
   def confirmation_token
@@ -52,8 +45,9 @@ private
         end
       end
 
+# return true if the user is authenticated with a cookie
 def authenticated_with_token?(token)
-   if (token == self.confirm_token)
+   if (token == self.remember_digest)
     return true
    end
  end

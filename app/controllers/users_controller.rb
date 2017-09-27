@@ -24,8 +24,6 @@ before_action :authenticate_user!, except: [:new, :create, :confirm_email]
     @user = User.find_by(params[:email])
     end
 
-   def remember_me
-   end
 
    def forgot
      @user = User.find_by(params[:email])
@@ -58,7 +56,7 @@ before_action :authenticate_user!, except: [:new, :create, :confirm_email]
 
 
   def user_params
-       params.require(:user).permit(:name, :email, :role, :password, :password_confirmation, :remember_password, :password_reset_token, :confirm_token)
+       params.require(:user).permit(:name, :email, :role, :password, :password_confirmation, :remember_password, :password_reset_token, :confirm_token, :remember_digest)
   end
 
   def authorize_user

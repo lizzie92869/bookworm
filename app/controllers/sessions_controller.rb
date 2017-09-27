@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+before_action :current_user, only: [:index]
 
 	#login form
 	def new
@@ -30,15 +31,16 @@ class SessionsController < ApplicationController
 		else
 		  #normal login with email and psw
 		  @user = User.find_by(email: params[:user][:email])
-
           if @user && @user.authenticate(params[:user][:password])  
-             #log in
-            session[:user_id] = @user.id
-            # cookies.permanent[:auth_token] = @user.auth_token
-	        params[:remember_me] == '1' ? remember(user) : forget(user)
+            log_in @user
+            #save the remember_digest
+            # cookies.permanent[:auth_token] = @user.remember_digest
+            
+            params[:user][:remember_me] == '1' ? remember(user) : forget(user)
+	        byebug
 	        flash[:message] = "Succesfully logged in from traditionnal sign in!"
-	        render 'users/user_profile'
-
+	        redirect_to root_path
+	       
           else
           	flash[:message] = 'Invalid email/password combination'
             render 'new'
