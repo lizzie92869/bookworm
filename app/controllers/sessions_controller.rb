@@ -30,14 +30,13 @@ before_action :current_user, only: [:index]
 
 		else
 		  #normal login with email and psw
-		  @user = User.find_by(email: params[:user][:email])
-          if @user && @user.authenticate(params[:user][:password])  
-            log_in @user
+		  user = User.find_by_email(params[:session][:email].downcase)
+          if user && user.authenticate(params[:session][:password]) 
+          byebug 
+            log_in user
             #save the remember_digest
-            # cookies.permanent[:auth_token] = @user.remember_digest
-            
-            params[:user][:remember_me] == '1' ? remember(user) : forget(user)
-	        byebug
+            params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+	        
 	        flash[:message] = "Succesfully logged in from traditionnal sign in!"
 	        redirect_to root_path
 	       
