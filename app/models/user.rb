@@ -36,6 +36,12 @@ def generate_token(column)
   end while User.exists?(column => self[column])
 end
 
+# return true if the user is authenticated with a cookie
+def authenticated_with_token?(token)
+   if (token == self.remember_digest)
+    return true
+   end
+ end
 
 private
   # return a random token to verify the email
@@ -45,11 +51,6 @@ private
         end
       end
 
-# return true if the user is authenticated with a cookie
-def authenticated_with_token?(token)
-   if (token == self.remember_digest)
-    return true
-   end
- end
+
 
 end
