@@ -1,14 +1,14 @@
 module SessionsHelper
 
 #when the page require the user to be logged in
-def authenticate_user!
+  def authenticate_user!
     if !logged_in?
-    flash[:message] = "This page requires you to be signed in."
-    redirect_to signin_path
+      flash[:message] = "This page requires you to be signed in."
+      redirect_to signin_path
     end
   end
 
-def current_user
+  def current_user
     #check if the user has a session
     if (user_id = session[:user_id])
       #if yes, find the current_user

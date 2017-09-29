@@ -7,21 +7,15 @@
     <%= f.label :password, class: "label" %>
     <%= f.password_field :password, class: "input" %>
   </div>
-
   <div class="group">
-  <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+  <input type="checkbox" name="remember_me" id="remember_me" value="1">
   <%= label_tag :remember_me %>
   </div>
-
   <div class="group">
       <%= f.submit "Enter", class: "button" %>
   </div>
-
   <div class="hr"></div>
-          <div class="foot-lnk">
-            <p><%= link_to "Forgot password?", new_password_reset_path %></p>
-             
-          </div>
-
-
+    <div class="foot-lnk">
+      <p><%= link_to "Forgot password?", new_password_reset_path %></p>
+    </div>
 <% end %>

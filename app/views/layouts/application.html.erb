@@ -8,17 +8,16 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+      <body>
 
-<%=current_user%>
-	  
-  <% if logged_in? %>
-  <p> logged in as: <%= current_user.email %> <%= button_to "Sign out", logout_path, method: :delete %></p>
-  <%else%>
-  <p> I am not logged in </p>
-<% end %>
+        <%=current_user%>  
+        <% if logged_in? %>
+          <p> logged in as: <%= current_user.email %> <%= button_to "Sign out", logout_path, method: :delete %></p>
+        <%else%>
+          <p> I am not logged in </p>
+        <% end %>
 
+      <%= yield %>
+    </body>
 
-    <%= yield %>
-  </body>
 </html>
