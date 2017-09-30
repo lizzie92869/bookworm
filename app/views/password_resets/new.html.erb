@@ -1,16 +1,18 @@
+<%= flash[:message] %>
 <div class="login-wrap">
   <div class="login-html">
     <div class="login-form">
-        <%= form_for @user, :url => {:controller => "users", :action => "forgot"} do |f| %>
+
+       <%= form_tag password_resets_path, :method => :post do %>
           <div class="group">
             We will send you an email to reset your password</br></br></br>
           </div>
           <div class="group">
-            <%= f.label :email, 'Email', class: "label" %>
-            <%= f.text_field :email, class: "input" %>
+            <%= label_tag :email, 'Email', class: "label" %>
+            <%= email_field_tag :email, "", class: "input" %>
           </div>
           <div class="group">
-              <%= f.submit "Enter", class: "button" %>
+              <%= submit_tag "Enter", class: "button" %>
           </div>
           <div class="hr"></div>
         <% end %>
@@ -18,6 +20,4 @@
     </div>
   </div>
 </div>
-
-
 
