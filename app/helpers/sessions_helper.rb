@@ -1,6 +1,6 @@
 module SessionsHelper
 
-#when the page require the user to be logged in
+  #when the page require the user to be logged in
   def authenticate_user!
     if !logged_in?
       flash[:message] = "This page requires you to be signed in."
@@ -13,7 +13,7 @@ module SessionsHelper
     if (user_id = session[:user_id])
       #if yes, find the current_user
       @current_user ||= User.find_by(id: user_id)
-    #if no, check if the user has a cookie 
+    #if no, check if the user has a cookie
     elsif (user_id = cookies.signed[:user_id])
       #if yes, find the user
       user = User.find_by(id: user_id)
@@ -27,7 +27,7 @@ module SessionsHelper
   def log_in(user)
     session[:user_id] = user.id
   end
-  
+
   def logged_in?
     !current_user.nil?
   end
@@ -43,6 +43,5 @@ module SessionsHelper
     cookies.delete(:user_id)
     cookies.delete(:auth_token)
   end
-  
+
 end
-  
