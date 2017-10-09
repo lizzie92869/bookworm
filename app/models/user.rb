@@ -1,27 +1,22 @@
-
 class User < ActiveRecord::Base
+  include Tokenable
   has_secure_password
+
   before_save { self.email = email.downcase }
   before_create :confirmation_token
-   include Tokenable
-  
-  
 
-before_save { self.email = email.downcase }
-VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-validates :email, presence: true, length: { maximum: 30 },
-                    format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }
-validates :name, presence: true, uniqueness:true, length: { maximum: 30 }                 
-validates :password, length: { maximum: 30, minimum: 6 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, length: { maximum: 30 },
+                      format: { with: VALID_EMAIL_REGEX },
+                      uniqueness: { case_sensitive: false }
+  validates :name, presence: true, uniqueness:true, length: { maximum: 30 }
+  validates :password, length: { maximum: 30, minimum: 6 }
 
-
-
-  # confirm the email   
+  # confirm the email
   def email_activate
     self.email_confirmed = true
     save!(:validate => false)
-  end 
+  end
 
   def send_password_reset
     generate_token(:password_reset_token)
