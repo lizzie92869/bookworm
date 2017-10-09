@@ -5,24 +5,24 @@
 		<input id="tab-2" type="radio" name="tab" class="sign-up" <%= blah == 'checked' ? nil : 'checked' %>><label for="tab-2" class="tab">Sign Up</label>
 		<div class="login-form">
 			<div class="sign-in-htm">
-			 <div class="group">
-			 	<%= link_to "authenticate with github", "/auth/github", {class: "button"}  %>
-			    <%= link_to "authenticate with facebook", "/auth/facebook", {class: "button"} %>
-			    <%= link_to "authenticate with twitter", "/auth/twitter", {class: "button"} %>
-			 </div>
-			 <h1> -------------- OR ---------------</h1>
-		      <!-- sign in form / login form -->
-          <%= render 'sessions/loginform' %>
+				<div class="group">
+					<%= link_to "authenticate with github", "/auth/github", {class: "button"}  %>
+				  <%= link_to "authenticate with facebook", "/auth/facebook", {class: "button"} %>
+				  <%= link_to "authenticate with twitter", "/auth/twitter", {class: "button"} %>
+				</div>
+				<h1> -------------- OR ---------------</h1>
+			  <!-- sign in form / login form -->
+	      <%= render 'sessions/loginform' %>
 			</div>
 			<div class="sign-up-htm">
-			<div class="group">
-			 	<%= link_to "authenticate with github", "/auth/github", {class: "button"}  %>
-			    <%= link_to "authenticate with facebook", "/auth/facebook", {class: "button"} %>
-			    <%= link_to "authenticate with twitter", "/auth/twitter", {class: "button"} %>
-			 </div>
-			 <h1> -------------- OR ---------------</h1>
-				<!-- sigup form / registration -->
-          <%= render 'users/userform' %>
+				<div class="group">
+				 	<%= link_to "authenticate with github", "/auth/github", {class: "button"}  %>
+				  <%= link_to "authenticate with facebook", "/auth/facebook", {class: "button"} %>
+				  <%= link_to "authenticate with twitter", "/auth/twitter", {class: "button"} %>
+				</div>
+				 <h1> -------------- OR ---------------</h1>
+					<!-- sigup form / registration -->
+	        <%= render 'users/userform' %>
 			</div>
 		</div>
 	</div>
