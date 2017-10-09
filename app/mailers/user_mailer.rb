@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-default from: "no-reply@bookworm.com"
+	default from: "no-reply@bookworm.com"
 
 	def signup_confirmation(user)
 	  @user = user
@@ -10,5 +10,4 @@ default from: "no-reply@bookworm.com"
 	  @user = user
 	  mail :to => user.email, :subject => "Password Reset"
 	end
-
 end

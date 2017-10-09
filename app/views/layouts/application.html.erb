@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Bookworm</title>
-    <%= csrf_meta_tags %>
+<!DOCTYPE html><html>
+<head>
+  <title>Bookworm</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <%=current_user%>
+  <% if logged_in? %>
+    <p> logged in as: <%= current_user.email %> <%= button_to "Sign out", logout_path, method: :delete %></p>
+  <%else%>
+    <p> I am not logged in </p>
+  <% end %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-      <body>
-
-        <%=current_user%>  
-        <% if logged_in? %>
-          <p> logged in as: <%= current_user.email %> <%= button_to "Sign out", logout_path, method: :delete %></p>
-        <%else%>
-          <p> I am not logged in </p>
-        <% end %>
-
-      <%= yield %>
-    </body>
-
-</html>
+  <%= yield %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</body></html>
