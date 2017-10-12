@@ -7,6 +7,7 @@ end
 
 gem 'active_model_serializers', '0.9.3'
 gem 'bcrypt', '~> 3.1.7'
+gem 'coffee-rails', '~> 4.2'
 gem 'dotenv-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
