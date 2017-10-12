@@ -1,0 +1,18 @@
+$nav-height: auto;
+$nav-bg-color: red;
+
+nav {
+
+}
+
+.logo {
+  float: left;
+  margin-right: 15px;
+  background: url('fb.png') no-repeat center center;
+  text-indent: -9999px;
+
+  >a {
+    display: block;
+    &:hover{ text-decoration: none; }
+  }
+}
