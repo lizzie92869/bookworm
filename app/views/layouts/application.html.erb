@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>Bookworm</title>
     <%= csrf_meta_tags %>
 
@@ -10,14 +11,34 @@
 
       <body>
 
-        <%=current_user%>  
-        <% if logged_in? %>
-          <p> logged in as: <%= current_user.email %> <%= button_to "Sign out", logout_path, method: :delete %></p>
-        <%else%>
-          <p> I am not logged in </p>
-        <% end %>
+        <div id= "nav_bar">
 
-      <%= yield %>
-    </body>
+          <%= image_tag('logo.png', id: "logo") %>
+
+          <ul>
+            <%= link_to "Bookworm", root_path, id: "bookworm"%>
+            <li><%=link_to "ABOUT", root_path%></li>
+            <li><%=link_to "READ", root_path, id: "read"%></li>
+            <li><%=link_to "WRITE", root_path%></li>
+          </ul>
+
+          <div id= "sign">
+            <% if logged_in? %>
+            <p> Hello <%= current_user.name %>! <%= button_to "Sign out", logout_path, method: :delete %></p>
+          <%else%>
+            <p> Sign in / Sign up</p>
+          <% end %>
+          </div>
+
+        </div>
+        
+        <div id= "frame">
+       
+          <%= yield %>
+        </div>
+        
+
+        
+      </body>
 
 </html>
