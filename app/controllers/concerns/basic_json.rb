@@ -1,3 +1,4 @@
+# BasicJson
 module BasicJson
   extend ActiveSupport::Concern
 
@@ -7,5 +8,4 @@ module BasicJson
       f.html {}
     end
   end
-
 end
