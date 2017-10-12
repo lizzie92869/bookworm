@@ -1,17 +1,15 @@
-<!DOCTYPE html><html>
-<head>
-  <title>Bookworm</title>
-  <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-</head>
-<body>
-  <%=current_user%>
-  <% if logged_in? %>
-    <p> logged in as: <%= current_user.email %> <%= button_to "Sign out", logout_path, method: :delete %></p>
-  <%else%>
-    <p> I am not logged in </p>
-  <% end %>
-
-  <%= yield %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= content_for?(:title) ? yield(:title) : "Bookworm" %></title>
+<%= render 'layouts/metatags/defaultmeta' %><%= csrf_meta_tags %>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<%= stylesheet_link_tag 'application' %><% if content_for?(:js_top) %><%= yeild(:js_top) %><% end %>
+</head><body>
+<%= render 'layouts/navbar' %>
+<div class="container">
+  <div class="row">
+    <%= yield %>
+  </div>
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
+<%= javascript_include_tag 'application' %><% if content_for?(:js_bot) %><%= yeild(:js_bot) %><% end %>
 </body></html>
