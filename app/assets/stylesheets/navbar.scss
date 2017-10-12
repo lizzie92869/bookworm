@@ -1,18 +1,17 @@
 $nav-height: auto;
-$nav-bg-color: red;
 
 nav {
-
+  font-size: .75rem;
+  text-transform: uppercase;
+  overflow: hidden;
 }
 
 .logo {
-  float: left;
-  margin-right: 15px;
-  background: url('fb.png') no-repeat center center;
-  text-indent: -9999px;
+  background: url('fb.png') no-repeat left center;
+  padding-left: 49px; /* fb logo is 44px width, + 5px padding */
+  font-size: .875rem;
+}
 
-  >a {
-    display: block;
-    &:hover{ text-decoration: none; }
-  }
+.navbar-brand.logo {
+  color: #777;
 }
