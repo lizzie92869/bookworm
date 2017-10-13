@@ -13,6 +13,6 @@
 </div>
 <div class="row">
   <% @books.each do |book| %>
-    <div class="col-sm-3"><%= render partial: 'book', locals: { book: book } %></div>
+    <div class="col-sm-2 books"><%= render partial: 'book', locals: { book: book } %></div>
   <% end %>
 </div>
