@@ -1,49 +1,24 @@
-<!DOCTYPE html>
-<html>
-  <head>
+<!DOCTYPE html><html>
+<head>
+  <title>Bookworm</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <%=current_user%>
+  <% if logged_in? %>
+    <p> logged in as: <%= current_user.email %> <%= button_to "Sign out", logout_path, method: :delete %></p>
+  <%else%>
+    <p> I am not logged in </p>
+  <% end %>
 
-    <title>Bookworm</title>
-    <%= csrf_meta_tags %>
+  <%= yield %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-      <body>
-
-        <div id= "nav_bar">
-
-          <%= image_tag('logo.png', id: "logo") %>
-
-          <ul>
-            <li><%= link_to "Bookworm", root_path, id: "bookworm"%></li>
-            <li><%=link_to "ABOUT", root_path, class:"text_nav"%></li>
-            <li><%=link_to "READ", root_path, class:"text_nav"%></li>
-            <li><%=link_to "WRITE", root_path, class:"text_nav"%></li>
-          </ul>
-
-          <div id= "sign">
-            <% if logged_in? %>
-            <p> Hello <%= current_user.name %>! <%= button_to "Sign out", logout_path, method: :delete %></p>
-          <%else%>
-            <p> Sign in / Sign up</p>
-          <% end %>
-          </div>
-
-        </div>
-        
-        <div id= "frame">
-          <%= yield %>
-        </div>
-
-        <div id="foot_centered">
+  <div id="foot_centered">
         <div id= "private_policy">private policy</div>
         <div id= "foot">©2017 Bookworm - All Rights Reserved</div>
 
         </div>
-        
+</body></html>
 
-        
-      </body>
-
-</html>

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Chapter do
-  let(:chapter){ Chapter.new }
+  let(:chapter) { Chapter.new }
   subject { chapter }
 
   context 'title' do
@@ -11,9 +11,4 @@ describe Chapter do
       expect(chapter.errors).to have_key(:title)
     end
   end
-
-
-
-
-  
 end

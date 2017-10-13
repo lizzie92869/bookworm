@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Book do
-  let(:book){ Book.new }
+  let(:book) { Book.new }
   subject { book }
 
   context ':title' do
@@ -25,7 +25,6 @@ describe Book do
 
     it 'length between 3 and 80 characters'
     it 'is case-insensitive and unique'
-
   end
 
   context ':description' do
@@ -38,9 +37,4 @@ describe Book do
 
     it 'allows maximum of 500 characters'
   end
-
-
-
-
-
 end

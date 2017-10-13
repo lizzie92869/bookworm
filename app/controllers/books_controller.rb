@@ -1,7 +1,8 @@
+# BooksController
 class BooksController < ApplicationController
   include BasicJson
 
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, only: %i[show edit update destroy]
 
   def index
     @books = Book.all
@@ -25,8 +26,7 @@ class BooksController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @book.update(book_params)
@@ -58,7 +58,7 @@ class BooksController < ApplicationController
       :book_code,
       :description,
       :cover_image,
-      :chapter_attributes => []
+      chapter_attributes: []
     )
   end
 end
