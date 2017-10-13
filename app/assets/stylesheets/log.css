@@ -1,9 +1,4 @@
-body{
-	margin:0;
-	color:#6a6f8c;
-	/*background:#c8c8c8;*/
-	font:600 16px/18px 'Open Sans',sans-serif;
-}
+
 *,:after,:before{box-sizing:border-box}
 .clearfix:after,.clearfix:before{content:'';display:table}
 .clearfix:after{clear:both;display:block}
@@ -156,13 +151,7 @@ h1 {
 	margin-top: 40px;
 	margin-bottom: 40px;
 }
-/* bottom line*/
-.hr{
-	height:2px;
-	margin:60px 0 50px 0;
-	background:rgba(255,255,255,.2);
-}
-/* already member */
+
 .foot-lnk{
 	text-align:center;
 }

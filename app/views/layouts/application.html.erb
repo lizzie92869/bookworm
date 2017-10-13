@@ -16,10 +16,10 @@
           <%= image_tag('logo.png', id: "logo") %>
 
           <ul>
-            <%= link_to "Bookworm", root_path, id: "bookworm"%>
-            <li><%=link_to "ABOUT", root_path%></li>
-            <li><%=link_to "READ", root_path, id: "read"%></li>
-            <li><%=link_to "WRITE", root_path%></li>
+            <li><%= link_to "Bookworm", root_path, id: "bookworm"%></li>
+            <li><%=link_to "ABOUT", root_path, class:"text_nav"%></li>
+            <li><%=link_to "READ", root_path, class:"text_nav"%></li>
+            <li><%=link_to "WRITE", root_path, class:"text_nav"%></li>
           </ul>
 
           <div id= "sign">
@@ -33,8 +33,13 @@
         </div>
         
         <div id= "frame">
-       
           <%= yield %>
+        </div>
+
+        <div id="foot_centered">
+        <div id= "private_policy">private policy</div>
+        <div id= "foot">©2017 Bookworm - All Rights Reserved</div>
+
         </div>
         
 
