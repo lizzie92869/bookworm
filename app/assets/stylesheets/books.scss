@@ -64,14 +64,6 @@
   }
 }
 
-.books {
-  &:after {
-    content: '';
-    display: table;
-    clear: both;
-  }
-}
-
 .book {
   position: relative;
   text-align: center;
@@ -92,16 +84,7 @@
     transition: box-shadow linear .1s;
   }
 }
-@media (min-width:425px) {
-  .book {
-    float: left;
-    margin: 10px;
-  }
-  .books-container {
-    margin: 0 auto;
-    padding-left: 0px;
-  }
-}
+
 
 
 
@@ -154,12 +137,6 @@
   &:focus {
     outline: none;
   }
-
-  &:after {
-    content: '';
-    display: table;
-    clear: both;
-  }
 }
 
 
@@ -200,4 +177,9 @@
     background: darken(dodgerblue, 20%);
     color: #fff;
   }
+}
+
+.books-col {
+  float: left;
+  width: 175px;
 }
