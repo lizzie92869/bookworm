@@ -14,3 +14,69 @@
  *= require_self
  *= require_tree
  */
+
+
+body{
+  background-image: url("background.png");
+  background-repeat: no-repeat;
+  background-width: 100%;
+}
+
+  div #logo{
+	position:fixed; top:5px; left:5px;
+  }
+
+  #nav_bar{
+  	background-color: #fff;
+  	height: 60px;
+  	width:100%;
+  	position: fixed; top:0px; left:0px;
+
+  }
+
+  #nav_bar ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font: 12px 'Open Sans',sans-serif;
+    color: #bfbfbf;
+    position: relative; 
+    float: left;
+    margin-left: 44px;
+    margin-top: 36px;
+  }
+
+  #nav_bar ul li{
+  	display: inline;
+  	margin-left: 40px;
+
+  }
+
+
+
+  #bookworm{
+  	font: 600 16px 'Open Sans',sans-serif;
+    color: black;
+  }
+
+  #sign{
+  	text-align: left;
+  	margin-right: 30px;
+  	position: relative;
+    font: 12px 'Open Sans',sans-serif;
+    color: #bfbfbf;
+    float:right;
+  }
+
+  #frame{
+  	background: url( asset-path('main_frame.png') ) no-repeat;
+  	background-size: 100% 100%;
+  }
+
+  #main_frame{
+  	width: 100%;
+  	margin-top: 150px;
+  	height: 400px;
+  }
+
+  
