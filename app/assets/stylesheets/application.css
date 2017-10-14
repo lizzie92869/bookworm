@@ -17,12 +17,16 @@
 
 
 body{
-  background-image: url("background.png");
-  background-repeat: no-repeat;
-  background-width: 100%;
+  background: linear-gradient(#e6e6e6, white,white, #e6e6e6); 
+  background-repeat: no-repeat; 
+  background-width: 100%; 
+  margin-top: 60px; 
+  margin:0; 
+  color: #bfbfbf; 
+  font:600 16px/18px 'Open Sans',sans-serif;
 }
 
-  div #logo{
+ /* div #logo{
 	position:fixed; top:5px; left:5px;
   }
 
@@ -57,8 +61,8 @@ body{
   #bookworm{
   	font: 600 16px 'Open Sans',sans-serif;
     color: black;
-  }
-
+  }*/
+/*
   #sign{
   	text-align: left;
   	margin-right: 30px;
@@ -67,16 +71,46 @@ body{
     color: #bfbfbf;
     float:right;
   }
-
-  #frame{
-  	background: url( asset-path('main_frame.png') ) no-repeat;
-  	background-size: 100% 100%;
-  }
+*/
+  #frame{  
+   background-color: white; 
+   background-size: contain; 
+   min-height: 500px; 
+   margin: 30px; 
+   box-shadow: inset 0 0 10px #888888; 
+   border:2px solid white; 
+   outline: 1px dashed white; 
+   outline-offset: -10px; 
+} 
 
   #main_frame{
   	width: 100%;
   	margin-top: 150px;
   	height: 400px;
   }
+
+   /* bottom line*/ 
+.hr{ 
+  height:2px; 
+  margin:60px 0 50px 0; 
+  background:rgba(255,255,255,.2); 
+} 
+
+#private_policy{ 
+   
+  display: inline; 
+  float: left; 
+  margin-left: 10px; 
+}
+
+#foot{ 
+margin: auto; 
+width: 50%; 
+text-align: center; 
+} 
+
+#foot_centered{ 
+  font: 12px 'Open Sans',sans-serif;     
+}
 
   

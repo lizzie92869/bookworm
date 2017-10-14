@@ -13,4 +13,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" charset="utf-8"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
 <%= javascript_include_tag 'application' %><% if content_for?(:js_bot) %><%= yeild(:js_bot) %><% end %>
+</div>     
+    <div id= "frame">     
+    <%= yield %> 
+</div>
+
+<div id="foot_centered"> 
+        <div id= "private_policy">private policy</div> 
+        <div id= "foot">©2017 Bookworm - All Rights Reserved</div>
+        </div>
 </body></html>
