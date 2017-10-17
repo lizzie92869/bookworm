@@ -20,74 +20,94 @@ body{
   background: linear-gradient(#e6e6e6, white,white, #e6e6e6); 
   background-repeat: no-repeat; 
   background-width: 100%; 
-  margin-top: 60px; 
   margin:0; 
-  color: #bfbfbf; 
   font:600 16px/18px 'Open Sans',sans-serif;
+
 }
 
- /* div #logo{
-	position:fixed; top:5px; left:5px;
-  }
+/*div for the search bar*/
+.container-1{
+  overflow: hidden;
+  width: 100%;
+  vertical-align: middle;
 
-  #nav_bar{
-  	background-color: #fff;
-  	height: 60px;
-  	width:100%;
-  	position: fixed; top:0px; left:0px;
+  white-space: nowrap;
+}
 
-  }
+/*search bar*/
+.container-1 input#search{
+  width: 200px;
+  height: 30px;
+  background: white;
+  border: none;
+  font:11px 'Open Sans',sans-serif;
+  float: right;
+  margin-right: 50px;
+  margin-top: 5px;
+  color: #777;
+  padding-left: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
 
-  #nav_bar ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    font: 12px 'Open Sans',sans-serif;
-    color: #bfbfbf;
-    position: relative; 
-    float: left;
-    margin-left: 44px;
-    margin-top: 36px;
-  }
+/*color of the placeholder in the search bar*/
+.container-1 input#search::-webkit-input-placeholder {
+   color: #777;
+}
+.container-1 input#search:-moz-placeholder { /* Firefox 18- */
+   color: #777;  
+}
+.container-1 input#search::-moz-placeholder {  /* Firefox 19+ */
+   color: #777;  
+}
+.container-1 input#search:-ms-input-placeholder {  
+   color: #777;  
+}
 
-  #nav_bar ul li{
-  	display: inline;
-  	margin-left: 40px;
+/*button of the search bar*/
+.container-1 button.icon{
+  -webkit-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  border: none;
+  background: #3C456D;
+  height: 40px;
+  width: 40px;
+  color: white;
+  
+  font-size: 15pt;
+  float: right;
+  margin-right: -200px;
+  /*shadow*/
+  -moz-box-shadow:    -4px 0px 1px 1px #ccc;
+  -webkit-box-shadow: -4px 0px 1px 1px #ccc;
+  box-shadow:         -4px 0px 1px 1px #ccc;
+}
 
-  }
+ 
+.title{
+  color:#e6e6e6;
+  font-size: 20px;
+  text-align:center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
 
 
 
-  #bookworm{
-  	font: 600 16px 'Open Sans',sans-serif;
-    color: black;
-  }*/
-/*
-  #sign{
-  	text-align: left;
-  	margin-right: 30px;
-  	position: relative;
-    font: 12px 'Open Sans',sans-serif;
-    color: #bfbfbf;
-    float:right;
-  }
-*/
   #frame{  
    background-color: white; 
    background-size: contain; 
    min-height: 500px; 
-   margin: 30px; 
+   margin: 30px;
+   margin-top: 30px; 
    box-shadow: inset 0 0 10px #888888; 
    border:2px solid white; 
-   outline: 1px dashed white; 
-   outline-offset: -10px; 
 } 
 
-  #main_frame{
-  	width: 100%;
-  	margin-top: 150px;
-  	height: 400px;
-  }
 
    /* bottom line*/ 
 .hr{ 
@@ -112,5 +132,9 @@ text-align: center;
 #foot_centered{ 
   font: 12px 'Open Sans',sans-serif;     
 }
+
+
+
+
 
   

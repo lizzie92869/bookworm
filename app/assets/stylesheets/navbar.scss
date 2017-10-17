@@ -1,15 +1,28 @@
 nav {
-  font-size: .75rem;
+  font-size: .65rem;
   text-transform: uppercase;
   overflow: hidden;
+  
+
 }
 
 .logo {
-  background: url('fb.png') no-repeat left center;
+  background: url('logo.png') no-repeat left center;
   padding-left: 49px; /* fb logo is 44px width, + 5px padding */
-  font-size: .875rem;
+  font-size: .75rem;
 }
 
 .navbar-brand.logo {
   color: #777;
+  background-color: white; 
+  
+}
+
+
+.navbar{
+	background-color: white;
+}
+
+.active{
+	margin-left: 50px;
 }
