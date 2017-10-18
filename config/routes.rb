@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'application#index'
+  #application
+  get '/about', to:'application#about'
   # users
   get '/user_profile/:id', to: 'users#show', as: 'user_profile'
   resources :users do

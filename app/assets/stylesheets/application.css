@@ -133,7 +133,34 @@ text-align: center;
   font: 12px 'Open Sans',sans-serif;     
 }
 
+.about{
+  color: #7F7F7F;
+  width: 350px;
+  margin: 40px;
+  text-align: justify;
+  float: left;
 
+}
+
+p{
+  font-size: 12px;
+  padding-top: 10px;
+  padding-bottom: 25px;
+}
+
+.big_book{
+  display: inline;
+  color: red;
+  height: 475px;
+  width: 400px;
+  float:right;
+}
+
+#img{
+ width:90%;
+ align-content: center;
+ margin:10px;
+}
 
 
 
