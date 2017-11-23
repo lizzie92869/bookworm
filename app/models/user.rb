@@ -1,5 +1,5 @@
 # User
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   include Tokenable
   has_secure_password
 

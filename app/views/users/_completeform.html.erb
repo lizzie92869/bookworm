@@ -1,4 +1,5 @@
 <div class="login-wrap">
+<%= render partial: 'shared/error_messages', locals: { target: @user } %>
 	<div class="login-html">
 		<input id="tab-1" type="radio" name="tab" class="sign-in" <%= blah == 'checked' ? 'checked' : nil %>><label for="tab-1" class="tab">Sign In</label>
 		<input id="tab-2" type="radio" name="tab" class="sign-up" <%= blah == 'checked' ? nil : 'checked' %>><label for="tab-2" class="tab">Sign Up</label>
